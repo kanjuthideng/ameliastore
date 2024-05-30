@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website SPA</title>
+    <!-- Tambahkan CDN Tailwind CSS di sini -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Tambahkan Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+</head>
+    <style>
+        /* Custom CSS di sini jika diperlukan */
+        html {
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        /* Tambahkan gaya untuk menu */
+        nav ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+            text-align: center; /* Center the text */
+        }
+
+        nav ul li a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #fff;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s; /* Add transition for color change */
+        }
+
+        nav ul li a i {
+            margin-bottom: 5px;
+        }
+
+        nav ul li a span {
+            transition: opacity 0.3s;
+            opacity: 0;
+        }
+
+        nav ul li.active a {
+            color: #3fdb9fa4; /* Change color for active menu */
+        }
+
+        nav ul li a:hover span {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            nav ul li {
+                margin-right: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white">
+    <!-- Header -->
+    <header class="bg-gray-800 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+        </div>
+    </header>
+
+    <!-- Navigasi -->
+    <nav class="bg-gray-800 mb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ul class="flex space-x-4">
+                <li><a href="#" onclick="navigateTo('home')"><i class="fas fa-home"></i><span>Halaman</span></a></li>
+                <li><a href="#" onclick="navigateTo('about')"><i class="fas fa-info-circle"></i><span>About</span></a></li>
+                <li><a href="#" onclick="navigateTo('services')"><i class="fas fa-cogs"></i><span>Services</span></a></li>
+                <li><a href="#" onclick="navigateTo('contact')"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="app" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 content">
+        <!-- Konten Halaman -->
+        <div id="homePage" class="page">
+            <div class="container mx-auto py-4">
+                <div class="grid grid-cols-2 gap-4">
+        <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto ">
+            <img src="assets/img/UnlockTool.png" alt="Product" class="w-full">
+            <div class="p-4 flex flex-col items-center justify-center">
+                <div class="font-bold text-xl mb-2 text-white">UnlockTool</div>
+                <div class="text-gray-400 font-bold text-sm mb-2">Rp 50.000</div>
+                <button data-title="UnlockTool" data-options='[{"durasi": "1 jam", "harga": "Rp 10.000"}, {"durasi": "3 jam", "harga": "Rp 30.000"}, {"durasi": "5 jam", "harga": "Rp 50.000"}]' class="btn-buy bg-green-500 hover:bg-green-700 text-white text-xs font-bold py-2 px-4 rounded">Beli di WhatsApp</button>
+            </div>
+        </div>
+        <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto ">
+            <img src="assets/img/32477603-19C6-4E01-886B-8BE01B866198.png" alt="Product" class="w-full ">
+            <div class="p-4 flex flex-col items-center justify-center">
+                <div class="font-bold text-xl mb-2 text-white">TFM Tool</div>
+                <div class="text-gray-400 font-bold text-sm mb-2">Rp 70.000</div>
+                <button data-title="TFM Tool" data-options='[{"durasi": "2 jam", "harga": "Rp 20.000"}, {"durasi": "4 jam", "harga": "Rp 40.000"}, {"durasi": "6 jam", "harga": "Rp 60.000"}]' class="btn-buy bg-green-500 hover:bg-green-700 text-white text-xs font-bold py-2 px-4 rounded">Beli di WhatsApp</button>
+            </div>
+        </div>
+        <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto ">
+            <img src="assets/img/PRO_20231105_005927_0000.png" alt="Product" class="w-full ">
+            <div class="p-4 flex flex-col items-center justify-center">
+                <div class="font-bold text-xl mb-2 text-white">AMT</div>
+                <div class="text-gray-400 font-bold text-sm mb-2">Rp 90.000</div>
+                <button data-title="AMT" data-options='[{"durasi": "1 jam", "harga": "Rp 30.000"}, {"durasi": "3 jam", "harga": "Rp 60.000"}, {"durasi": "5 jam", "harga": "Rp 90.000"}]' class="btn-buy bg-green-500 hover:bg-green-700 text-white text-xs font-bold py-2 px-4 rounded">Beli di WhatsApp</button>
+            </div>
+        </div>
+        <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto ">
+            <img src="assets/img/CHIMERA.png" alt="Product" class="w-full ">
+            <div class="p-4 flex flex-col items-center justify-center">
+                <div class="font-bold text-xl mb-2 text-white">CHIMERA</div>
+                <div class="text-gray-400 font-bold text-sm mb-2">Rp 50.000</div>
+                <button data-title="CHIMERA Samsung" data-options='[{"durasi": "1 jam", "harga": "Rp 10.000"}, {"durasi": "3 jam", "harga": "Rp 20.000"}, {"durasi": "4 jam", "harga": "Rp 50.000"}]' class="btn-buy bg-green-500 hover:bg-green-700 text-white text-xs font-bold py-2 px-4 rounded">Beli di WhatsApp</button>
+            </div>
+        </div>
+
+
+    <!-- Modal content -->
+    <div id="popupContent" class="mfp-hide white-popup-block p-4 flex flex-col items-center justify-center">
+        <h2 class="text-xl font-bold mb-4">Pilih Durasi dan Harga</h2>
+        <div id="popupOptions" class="mb-4">
+            <!-- Options will be dynamically added here -->
+        </div>
+        <button class="bg-red-500 text-white py-2 px-4 rounded" onclick="$.magnificPopup.close()">Batal</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.btn-buy').each(function() {
+                $(this).magnificPopup({
+                    items: {
+                        src: '#popupContent',
+                        type: 'inline'
+                    },
+                    closeBtnInside: true,
+                    callbacks: {
+                        open: function() {
+                            var $btn = $(this.st.el);
+                            var options = JSON.parse($btn.attr('data-options'));
+                            window.selectedTitle = $btn.data('title');
+
+                            var $popupOptions = $('#popupOptions');
+                            $popupOptions.empty();
+
+                            options.forEach(function(option) {
+                                var $button = $('<button>')
+                                    .text(option.durasi + ' - ' + option.harga)
+                                    .addClass('bg-gray-800 text-white py-2 px-4 rounded mb-2')
+                                    .click(function() {
+                                        sendWhatsAppMessage(option.durasi, option.harga);
+                                    });
+                                $popupOptions.append($button);
+                                $popupOptions.append('<br>');
+                            });
+                        }
+                    }
+                });
+            });
+        });
+
+        function sendWhatsAppMessage(duration, price) {
+            var phoneNumber = '6287848777976';
+            var message = `Halo, saya tertarik dengan ${window.selectedTitle} untuk durasi ${duration} dengan harga ${price}`;
+            var whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            $.magnificPopup.close();
+        }
+    </script>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="aboutPage" class="page hidden">
+            
+                <div class=" p-8 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold mb-4">Siapa Kami</h2>
+                    <p class="mb-4">Kami adalah tim profesional yang berdedikasi untuk menyediakan alat dan layanan berkualitas tinggi untuk perbaikan ponsel. Misi kami adalah memberdayakan teknisi dan penggemar DIY dengan alat terbaik yang tersedia, memastikan setiap perbaikan sukses.</p>
+                    
+                    <h2 class="text-2xl font-bold mb-4">Misi Kami</h2>
+                    <p class="mb-4">Misi kami adalah menjadi pemasok utama alat dan layanan perbaikan ponsel. Kami berusaha menyediakan produk berkualitas tinggi dengan harga yang kompetitif, didukung oleh layanan pelanggan dan dukungan teknis yang luar biasa.</p>
+                    
+                    <h2 class="text-2xl font-bold mb-4">Nilai-Nilai Kami</h2>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li class="mb-2"><strong>Kualitas:</strong> Kami memastikan bahwa semua produk kami memenuhi standar kualitas dan keandalan tertinggi.</li>
+                        <li class="mb-2"><strong>Kepuasan Pelanggan:</strong> Pelanggan kami adalah inti dari segala yang kami lakukan. Kami berusaha melebihi harapan mereka dalam setiap interaksi.</li>
+                        <li class="mb-2"><strong>Inovasi:</strong> Kami terus mencari kemajuan terbaru dalam teknologi untuk menawarkan alat dan solusi terbaik.</li>
+                        <li class="mb-2"><strong>Integritas:</strong> Kami menjalankan bisnis kami dengan jujur dan transparan, membangun kepercayaan dengan pelanggan dan mitra kami.</li>
+                    </ul>
+                    
+                    <h2 class="text-2xl font-bold mb-4">Tim Kami</h2>
+                    <p class="mb-4">Tim kami terdiri dari profesional berpengalaman dengan pengetahuan luas dalam perbaikan ponsel. Kami sangat antusias dengan apa yang kami lakukan dan selalu siap membantu pelanggan kami dengan kebutuhan perbaikan mereka.</p>
+                    
+                    <h2 class="text-2xl font-bold mb-4">Hubungi Kami</h2>
+                    <p>Jika Anda memiliki pertanyaan atau membutuhkan bantuan, jangan ragu untuk menghubungi kami:</p>
+                    <ul class="list-disc pl-5">
+                        <li class="mb-2"><strong>Email:</strong> support@contoh.com</li>
+                        <li class="mb-2"><strong>Telepon:</strong> (123) 456-7890</li>
+                        <li><strong>Alamat:</strong> Jalan Utama 123, Kota, Provinsi, Kode Pos</li>
+                    </ul>
+                </div>
+            
+        </div>
+
+        <div id="servicesPage" class="page hidden">
+            <div class="p-8 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-bold mb-4">Layanan Kami</h2>
+                <p class="mb-4">Kami menawarkan berbagai layanan untuk memenuhi kebutuhan perbaikan ponsel Anda. Tim ahli kami siap membantu Anda dengan layanan berkualitas tinggi dan dukungan teknis yang luar biasa.</p>
+                
+                <div class="grid gap-8 md:grid-cols-2">
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-2">Perbaikan Layar</h3>
+                        <p>Kami menyediakan layanan perbaikan layar untuk berbagai model ponsel. Layanan ini termasuk penggantian layar pecah atau rusak dengan komponen berkualitas tinggi.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-2">Penggantian Baterai</h3>
+                        <p>Kami menawarkan layanan penggantian baterai untuk memastikan ponsel Anda tetap berfungsi dengan baik. Kami hanya menggunakan baterai berkualitas tinggi yang kompatibel dengan perangkat Anda.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-2">Perbaikan Perangkat Lunak</h3>
+                        <p>Tim ahli kami dapat membantu Anda mengatasi masalah perangkat lunak, seperti pembaruan sistem yang gagal, pemulihan data, dan masalah lainnya yang terkait dengan perangkat lunak.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-2">Perbaikan Kamera</h3>
+                        <p>Kami menyediakan layanan perbaikan dan penggantian kamera untuk berbagai model ponsel, memastikan Anda dapat terus mengambil foto dan video berkualitas tinggi.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-2">Perbaikan Port Pengisian</h3>
+                        <p>Jika ponsel Anda mengalami masalah pengisian daya, kami dapat membantu memperbaiki atau mengganti port pengisian untuk memastikan ponsel Anda berfungsi dengan baik.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-2">Layanan Lainnya</h3>
+                        <p>Kami juga menawarkan berbagai layanan lainnya sesuai kebutuhan Anda. Jangan ragu untuk menghubungi kami jika Anda memiliki pertanyaan atau memerlukan bantuan khusus.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="contactPage" class="page hidden">
+            <div class="p-8 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-bold mb-4">Kontak Kami</h2>
+                <p class="mb-4">Jika Anda memiliki pertanyaan, komentar, atau membutuhkan bantuan, jangan ragu untuk menghubungi kami melalui informasi kontak di bawah ini atau dengan mengisi formulir kontak.</p>
+                
+                <div class="grid gap-8 md:grid-cols-2">
+                    <!-- Contact Information -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Informasi Kontak</h3>
+                        <ul class="list-disc pl-5">
+                            <li class="mb-2"><strong>Email:</strong> support@contoh.com</li>
+                            <li class="mb-2"><strong>Telepon:</strong> (123) 456-7890</li>
+                            <li class="mb-2"><strong>Alamat:</strong> Jalan Utama 123, Kota, Provinsi, Kode Pos</li>
+                        </ul>
+                    </div>
+                    <!-- Contact Form -->
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-2">Formulir Kontak</h3>
+                        <form id="contactForm" class="space-y-4 ">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-500">Nama</label>
+                                <input type="text" id="name" name="name" class="mt-1 block w-full border-gray-300 text-gray-800 p-2 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-500">Email</label>
+                                <input type="email" id="email" name="email" class="mt-1 block w-full border-gray-300 text-gray-800 p-2 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-500">Pesan</label>
+                                <textarea id="message" name="message" rows="4" class="mt-1 block w-full border border-gray-300 text-gray-800 p-2 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+                            </div>
+                            <div>
+                                <button type="button" onclick="sendWhatsAppMessage()" class="inline-block bg-green-500 hover:bg-green-700 text-white text-xs font-bold py-2 px-4 rounded">Kirim Pesan</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--    <script>
+        function sendWhatsAppMessage() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            const phoneNumber = '+6287848777976';
+            
+            const whatsappMessage = `Nama: ${name}%0AEmail: ${email}%0APesan: ${message}`;
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+            
+            window.open(whatsappURL, '_blank');
+        }
+    </script> -->
+ <!-- Footer -->
+ <footer class="bg-gray-800 text-gray-400 hover:text-white py-8">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-wrap justify-between">
+            <!-- Navigation Links -->
+            <div class="w-full sm:w-1/2 md:w-1/4 mb-4">
+                <h2 class="text-lg text-white font-semibold mb-2">Navigation</h2>
+                <ul class="space-y-2">
+                    <li><a href="#" onclick="navigateTo('home')" class="hover:underline">Home</a></li>
+                    <li><a href="#" onclick="navigateTo('about')" class="hover:underline">About</a></li>
+                    <li><a href="#" onclick="navigateTo('services')" class="hover:underline">Services</a></li>
+                    <li><a href="#" onclick="navigateTo('contact')" class="hover:underline">Contact</a></li>
+                </ul>
+            </div>
+            <!-- Contact Information -->
+            <div class="w-full sm:w-1/2 md:w-1/4 mb-4">
+                <h2 class="text-lg text-white font-semibold mb-2">Contact Us</h2>
+                <p>123 Street Name</p>
+                <p>City, State, ZIP</p>
+                <p>Email: info@example.com</p>
+                <p>Phone: (123) 456-7890</p>
+            </div>
+            <!-- Social Media Links -->
+            <div class="w-full sm:w-1/2 md:w-1/4 mb-4">
+                <h2 class="text-lg text-white font-semibold mb-2">Follow Us</h2>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-facebook-f fa-lg"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-twitter fa-lg"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-instagram fa-lg"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-linkedin-in fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        // Fungsi untuk menampilkan halaman berdasarkan ID
+        function navigateTo(pageId) {
+            // Semua halaman disembunyikan
+            document.querySelectorAll('.page').forEach(function(page) {
+                page.classList.add('hidden');
+            });
+
+            // Tampilkan halaman yang dipilih
+            document.getElementById(pageId + 'Page').classList.remove('hidden');
+
+            // Menghapus kelas active dari semua menu
+            document.querySelectorAll('nav ul li').forEach(function(item) {
+                item.classList.remove('active');
+            });
+
+            // Menambahkan kelas active ke menu yang diklik
+            document.querySelector('nav ul li:nth-child(' + (['home', 'about', 'services', 'contact'].indexOf(pageId) + 1) + ')').classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
