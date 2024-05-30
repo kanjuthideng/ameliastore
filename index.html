@@ -107,7 +107,7 @@
             <img src="assets/img/UnlockTool.png" alt="Product" class="w-full">
             <div class="p-4 flex flex-col items-center justify-center">
                 <div class="font-bold text-xl mb-2 text-white">UnlockTool</div>
-                <div class="text-gray-400 font-bold text-sm mb-2">Rp 50.000</div>
+                <div class="text-gray-400 font-bold text-sm mb-2">Rp 10.000</div>
                 <button data-title="UnlockTool" data-options='[{"durasi": "1 jam", "harga": "Rp 10.000"}, {"durasi": "3 jam", "harga": "Rp 30.000"}, {"durasi": "5 jam", "harga": "Rp 50.000"}]' class="btn-buy bg-green-500 hover:bg-green-700 text-white text-xs font-bold py-2 px-4 rounded">Beli di WhatsApp</button>
             </div>
         </div>
@@ -115,7 +115,7 @@
             <img src="assets/img/32477603-19C6-4E01-886B-8BE01B866198.png" alt="Product" class="w-full ">
             <div class="p-4 flex flex-col items-center justify-center">
                 <div class="font-bold text-xl mb-2 text-white">TFM Tool</div>
-                <div class="text-gray-400 font-bold text-sm mb-2">Rp 70.000</div>
+                <div class="text-gray-400 font-bold text-sm mb-2">Rp 20.000</div>
                 <button data-title="TFM Tool" data-options='[{"durasi": "2 jam", "harga": "Rp 20.000"}, {"durasi": "4 jam", "harga": "Rp 40.000"}, {"durasi": "6 jam", "harga": "Rp 60.000"}]' class="btn-buy bg-green-500 hover:bg-green-700 text-white text-xs font-bold py-2 px-4 rounded">Beli di WhatsApp</button>
             </div>
         </div>
@@ -123,7 +123,7 @@
             <img src="assets/img/PRO_20231105_005927_0000.png" alt="Product" class="w-full ">
             <div class="p-4 flex flex-col items-center justify-center">
                 <div class="font-bold text-xl mb-2 text-white">AMT</div>
-                <div class="text-gray-400 font-bold text-sm mb-2">Rp 90.000</div>
+                <div class="text-gray-400 font-bold text-sm mb-2">Rp 30.000</div>
                 <button data-title="AMT" data-options='[{"durasi": "1 jam", "harga": "Rp 30.000"}, {"durasi": "3 jam", "harga": "Rp 60.000"}, {"durasi": "5 jam", "harga": "Rp 90.000"}]' class="btn-buy bg-green-500 hover:bg-green-700 text-white text-xs font-bold py-2 px-4 rounded">Beli di WhatsApp</button>
             </div>
         </div>
@@ -131,7 +131,7 @@
             <img src="assets/img/CHIMERA.png" alt="Product" class="w-full ">
             <div class="p-4 flex flex-col items-center justify-center">
                 <div class="font-bold text-xl mb-2 text-white">CHIMERA</div>
-                <div class="text-gray-400 font-bold text-sm mb-2">Rp 50.000</div>
+                <div class="text-gray-400 font-bold text-sm mb-2">Rp 10.000</div>
                 <button data-title="CHIMERA Samsung" data-options='[{"durasi": "1 jam", "harga": "Rp 10.000"}, {"durasi": "3 jam", "harga": "Rp 20.000"}, {"durasi": "4 jam", "harga": "Rp 50.000"}]' class="btn-buy bg-green-500 hover:bg-green-700 text-white text-xs font-bold py-2 px-4 rounded">Beli di WhatsApp</button>
             </div>
         </div>
@@ -183,7 +183,7 @@
         });
 
         function sendWhatsAppMessage(duration, price) {
-            var phoneNumber = '6287848777976';
+            var phoneNumber = '+6282269414039';
             var message = `Halo, saya tertarik dengan ${window.selectedTitle} untuk durasi ${duration} dengan harga ${price}`;
             var whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
@@ -275,8 +275,15 @@
                             <li class="mb-2"><strong>Alamat:</strong> Jalan Utama 123, Kota, Provinsi, Kode Pos</li>
                         </ul>
                     </div>
-                    <!-- Contact Form -->
-                    <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- 
+              <div class="bg-gray-800 p-6 rounded-lg shadow-md">
                         <h3 class="text-xl font-bold mb-2">Formulir Kontak</h3>
                         <form id="contactForm" class="space-y-4 ">
                             <div>
@@ -296,14 +303,7 @@
                             </div>
                         </form>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <!--    <script>
+                       <script>
         function sendWhatsAppMessage() {
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
