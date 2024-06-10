@@ -27,84 +27,92 @@
             flex: 1;
         }
 
-        /* Tambahkan gaya untuk menu */
-        nav ul {
-            display: flex;
-            align-items: center;
-            list-style: none;
-            padding: 0;
+        .active {
+            color: #003281; /* Warna biru untuk menu aktif */
         }
-
-        nav ul li {
-            margin-right: 20px;
-            text-align: center; /* Center the text */
+        .nav-hidden {
+            transform: translateY(100%);
+            transition: transform 0.3s ease-in-out;
         }
-
-        nav ul li a {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #fff;
-            text-decoration: none;
-            position: relative;
-            transition: color 0.3s; /* Add transition for color change */
-        }
-
-        nav ul li a i {
-            margin-bottom: 5px;
-        }
-
-        nav ul li a span {
-            transition: opacity 0.3s;
-            opacity: 0;
-        }
-
-        nav ul li.active a {
-            color: #3fdb9fa4; /* Change color for active menu */
-        }
-
-        nav ul li a:hover span {
-            opacity: 1;
-        }
-
-        @media (max-width: 768px) {
-            nav ul li {
-                margin-right: 10px;
-            }
+        .nav-visible {
+            transform: translateY(0);
+            transition: transform 0.3s ease-in-out;
         }
     </style>
 </head>
 
-<body class="bg-gray-900 text-white">
-    <!-- Header -->
-    <header class="bg-gray-800 py-4">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-        </div>
-    </header>
+<body class="bg-gray-900 text-white ">
 
-    <!-- Navigasi -->
-    <nav class="bg-gray-800 mb-6">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <ul class="flex space-x-4">
-                <li><a href="#" onclick="navigateTo('home')"><i class="fas fa-home"></i><span>Halaman</span></a></li>
-                <li><a href="#" onclick="navigateTo('about')"><i class="fas fa-info-circle"></i><span>About</span></a></li>
-                <li><a href="#" onclick="navigateTo('services')"><i class="fas fa-cogs"></i><span>Services</span></a></li>
-                <li><a href="#" onclick="navigateTo('contact')"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
-            </ul>
-        </div>
-    </nav>
+<!-- Navigasi di bagian bawah -->
+<div id="navMenu" class="fixed bottom-0 left-0 z-50 w-full h-16 bg-gray-800 border-t border-gray-600 nav-visible">
+    <div class="grid h-full max-w-lg grid-cols-4 mx-auto font-medium">
+        <button type="button" onclick="navigateTo('home')" id="home" class="inline-flex flex-col items-center justify-center px-5 border-gray-600 border-x hover:bg-gray-700 group dark:border-gray-600">
+            <i class="fas fa-home w-5 h-5 mb-2 text-gray-400 group-hover:text-blue-500"></i>
+            <span class="text-sm text-gray-400 group-hover:text-blue-500">Home</span>
+        </button>
+        <button type="button" onclick="navigateTo('about')" id="about" class="inline-flex flex-col items-center justify-center px-5 border-e border-gray-600 hover:bg-gray-700 group dark:border-gray-600">
+            <i class="fas fa-info-circle w-5 h-5 mb-2 text-gray-400 group-hover:text-blue-500"></i>
+            <span class="text-sm text-gray-400 group-hover:text-blue-500">About</span>
+        </button>
+        <button type="button" onclick="navigateTo('services')" id="services" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-700 group">
+            <i class="fas fa-cogs w-5 h-5 mb-2 text-gray-400 group-hover:text-blue-500"></i>
+            <span class="text-sm text-gray-400 group-hover:text-blue-500">Services</span>
+        </button>
+        <button type="button" onclick="navigateTo('contact')" id="contact" class="inline-flex flex-col items-center justify-center px-5 border-gray-600 hover:bg-gray-700 group border-x dark:border-gray-600">
+            <i class="fas fa-envelope w-5 h-5 mb-2 text-gray-400 group-hover:text-blue-500"></i>
+            <span class="text-sm text-gray-400 group-hover:text-blue-500">Contact</span>
+        </button>
+    </div>
+</div>
 
-    <div id="app" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 content">
+<script>
+    let lastScrollY = window.scrollY;
+
+    function navigateTo(page) {
+        // Hapus kelas aktif dari semua tombol
+        document.querySelectorAll('button').forEach(button => {
+            button.querySelector('i').classList.remove('text-blue-500');
+            button.querySelector('span').classList.remove('text-blue-500');
+        });
+        // Tambahkan kelas aktif ke tombol yang diklik
+        const activeButton = document.getElementById(page);
+        activeButton.querySelector('i').classList.add('text-blue-500');
+        activeButton.querySelector('span').classList.add('text-blue-500');
+
+        // Logika navigasi (ganti ini dengan logika navigasi aktual Anda)
+        alert("Navigasi ke " + page);
+    }
+
+    // Tambahkan kelas aktif ke halaman pertama saat dimuat
+    document.addEventListener('DOMContentLoaded', (event) => {
+        navigateTo('home');
+    });
+
+    window.addEventListener('scroll', () => {
+        const navMenu = document.getElementById('navMenu');
+        if (window.scrollY > lastScrollY) {
+            // Scroll ke bawah
+            navMenu.classList.remove('nav-visible');
+            navMenu.classList.add('nav-hidden');
+        } else {
+            // Scroll ke atas
+            navMenu.classList.remove('nav-hidden');
+            navMenu.classList.add('nav-visible');
+        }
+        lastScrollY = window.scrollY;
+    });
+</script>
+
+    <div id="app" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 content mt-2">
         <div id="homePage" class="page">
 
-            <div class="container mx-auto mb-4">
+            <div class="container mx-auto  mb-4">
                 <div class="grid grid-cols-2 xl:grid-cols-4 gap-2">
 
                     <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col">
                         <img src="assets/img/UnlockTool.png" alt="Product" class="w-full">
                         <div class="p-4 flex-grow flex flex-col items-center">
-                            <div class="font-bold text-xl mb-2 text-white">UNCLOKTOOL</div>
+                            <div class="font-bold text-md mb-2 text-white">UNCLOKTOOL</div>
                             <div class="flex items-center mt-2.5 mb-5">
                                 <div class="flex items-center space-x-1 rtl:space-x-reverse">
                                    <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
@@ -137,7 +145,7 @@
                     <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col">
                      <img src="assets/img/32477603-19C6-4E01-886B-8BE01B866198.png" alt="Product" class="w-full p-4">
                      <div class="p-4 flex flex-col items-center justify-center">
-                     <div class="font-bold text-xl mb-2 text-white">TFM TOOL</div>
+                     <div class="font-bold text-md mb-2 text-white">TFM TOOL</div>
                      <div class="flex items-center mt-2.5 mb-5">
                         <div class="flex items-center space-x-1 rtl:space-x-reverse">
                            <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
@@ -171,7 +179,7 @@
                   <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col">
                     <img src="assets/img/dft.png" alt="Product" class="w-full p-6">
                     <div class="p-4 flex-grow flex flex-col items-center">
-                        <div class="font-bold text-xl mb-2 text-white">DFT PRO</div>
+                        <div class="font-bold text-md mb-2 text-white">DFT PRO</div>
                         <div class="text-gray-400 font-bold text-sm mb-2">Rp 50.000</div>
                     </div>
                     <footer class="p-2">
@@ -184,7 +192,7 @@
                   <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col">
                     <img src="assets/img/CHIMERA.png" alt="Product" class="w-full ">
                     <div class="p-4 flex-grow flex flex-col items-center">
-                        <div class="font-bold text-xl mb-2 text-white">CHIMERA</div>
+                        <div class="font-bold text-md mb-2 text-white">CHIMERA</div>
                         <div class="text-gray-400 font-bold text-sm mb-2">Rp 150.000</div>
                     </div>
                     <footer class="p-2">
@@ -197,7 +205,7 @@
                 <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col">
                     <img src="assets/img/CHIMERA.png" alt="Product" class="w-full ">
                     <div class="p-4 flex-grow flex flex-col items-center">
-                        <div class="font-bold text-xl mb-2 text-white">CF TOOL</div>
+                        <div class="font-bold text-md mb-2 text-white">CF TOOL</div>
                         <div class="text-gray-400 font-bold text-sm mb-2">Rp 20.000</div>
                     </div>
                     <footer class="p-2">
@@ -210,7 +218,7 @@
                 <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col">
                     <img src="assets/img/CHIMERA.png" alt="Product" class="w-full ">
                     <div class="p-4 flex-grow flex flex-col items-center">
-                        <div class="font-bold text-xl mb-2 text-white">RTC TOOL</div>
+                        <div class="font-bold text-md mb-2 text-white">RTC TOOL</div>
                         <div class="text-gray-400 font-bold text-sm mb-2">Rp 50.000</div>
                     </div>
                     <footer class="p-2">
@@ -223,7 +231,7 @@
                 <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col">
                     <img src="assets/img/CHIMERA.png" alt="Product" class="w-full ">
                     <div class="p-4 flex-grow flex flex-col items-center">
-                        <div class="font-bold text-xl mb-2 text-white">AMT</div>
+                        <div class="font-bold text-md mb-2 text-white">AMT</div>
                         <div class="text-gray-400 font-bold text-sm mb-2">Rp 25.000</div>
                     </div>
                     <footer class="p-2">
@@ -236,7 +244,7 @@
                 <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col">
                     <img src="assets/img/CHIMERA.png" alt="Product" class="w-full ">
                     <div class="p-4 flex-grow flex flex-col items-center">
-                        <div class="font-bold text-xl mb-2 text-white">GRIFFIN TOOL</div>
+                        <div class="font-bold text-md mb-2 text-white">GRIFFIN TOOL</div>
                         <div class="text-gray-400 font-bold text-sm mb-2">Rp 35.000</div>
                     </div>
                     <footer class="p-2">
@@ -249,7 +257,7 @@
                 <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col">
                     <img src="assets/img/CHIMERA.png" alt="Product" class="w-full ">
                     <div class="p-4 flex-grow flex flex-col items-center">
-                        <div class="font-bold text-xl mb-2 text-white">HYDRA TOOL</div>
+                        <div class="font-bold text-md mb-2 text-white">HYDRA TOOL</div>
                         <div class="text-gray-400 font-bold text-sm mb-2">Rp 70.000</div>
                     </div>
                     <footer class="p-2">
@@ -262,7 +270,7 @@
                 <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col">
                     <img src="assets/img/CHIMERA.png" alt="Product" class="w-full ">
                     <div class="p-4 flex-grow flex flex-col items-center">
-                        <div class="font-bold text-xl mb-2 text-white"> MiCloud Server</div>
+                        <div class="font-bold text-md mb-2 text-white"> MiCloud Server</div>
                         <div class="text-gray-400 font-bold text-sm ">Rp 100.000</div>
                     </div>
                     <div class="ml-4 mr-4 mb-5">
@@ -281,7 +289,7 @@
                 <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col">
                     <img src="assets/img/CHIMERA.png" alt="Product" class="w-full ">
                     <div class="p-4 flex-grow flex flex-col items-center">
-                        <div class="font-bold text-xl mb-2 text-white">SCHEMATICS</div>
+                        <div class="font-bold text-md mb-2 text-white">SCHEMATICS</div>
                         <p class="text-gray-300 text-center text-sm mb-2">Borneo, Pragmafix, Estech, WXJ</p>
                         <div class="text-gray-400 font-bold text-sm mb-2">Rp 70.000</div>
                     </div>
@@ -295,7 +303,7 @@
                 <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col">
                     <img src="assets/img/CHIMERA.png" alt="Product" class="w-full ">
                     <div class="p-4 flex-grow flex flex-col items-center">
-                        <div class="font-bold text-xl mb-2 text-white">Z3X TOOL PRO</div>
+                        <div class="font-bold text-md mb-2 text-white">Z3X TOOL PRO</div>
                         <div class="text-gray-400 font-bold text-sm mb-2">Rp 50.000</div>
                     </div>
                     <footer class="p-2">
@@ -308,7 +316,7 @@
                 <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col">
                     <img src="assets/img/CHIMERA.png" alt="Product" class="w-full ">
                     <div class="p-4 flex-grow flex flex-col items-center">
-                        <div class="font-bold text-xl mb-2 text-white">CM2 DONGLE</div>
+                        <div class="font-bold text-md mb-2 text-white">CM2 DONGLE</div>
                         <div class="text-gray-400 font-bold text-sm mb-2">Rp 50.000</div>
                     </div>
                     <footer class="p-2">
@@ -321,7 +329,7 @@
                 <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col">
                     <img src="assets/img/CHIMERA.png" alt="Product" class="w-full ">
                     <div class="p-4 flex-grow flex flex-col items-center">
-                        <div class="font-bold text-xl mb-2 text-white"> OCTOPLUS</div>
+                        <div class="font-bold text-md mb-2 text-white"> OCTOPLUS</div>
                         <p class="text-gray-300 text-center text-sm mb-2">FRP</p>
                         <div class="text-gray-400 font-bold text-sm ">Rp 30.000</div>
                     </div>
@@ -335,7 +343,7 @@
                 <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col">
                     <img src="assets/img/CHIMERA.png" alt="Product" class="w-full ">
                     <div class="p-4 flex-grow flex flex-col items-center">
-                        <div class="font-bold text-xl mb-2 text-white"> OCTOPLUS</div>
+                        <div class="font-bold text-md mb-2 text-white"> OCTOPLUS</div>
                         <p class="text-gray-300 text-center text-sm mb-2">Samsung/huawei/LG</p>
                         <div class="text-gray-400 font-bold text-sm ">Rp 50.000</div>
                     </div>
@@ -494,44 +502,7 @@
 
 
 
-    <!-- 
-              <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold mb-2">Formulir Kontak</h3>
-                        <form id="contactForm" class="space-y-4 ">
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-gray-500">Nama</label>
-                                <input type="text" id="name" name="name" class="mt-1 block w-full border-gray-300 text-gray-800 p-2 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-500">Email</label>
-                                <input type="email" id="email" name="email" class="mt-1 block w-full border-gray-300 text-gray-800 p-2 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            </div>
-                            <div>
-                                <label for="message" class="block text-sm font-medium text-gray-500">Pesan</label>
-                                <textarea id="message" name="message" rows="4" class="mt-1 block w-full border border-gray-300 text-gray-800 p-2 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
-                            </div>
-                            <div>
-                                <button type="button" onclick="sendWhatsAppMessage()" class="inline-block bg-green-500 hover:bg-green-700 text-white text-xs font-bold py-2 px-4 rounded">Kirim Pesan</button>
-                            </div>
-                        </form>
-                    </div>
-                       <script>
-        function sendWhatsAppMessage() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            const phoneNumber = '+6287848777976';
-            
-            const whatsappMessage = `Nama: ${name}%0AEmail: ${email}%0APesan: ${message}`;
-            const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
-            
-            window.open(whatsappURL, '_blank');
-        }
-    </script> -->
-    
-
-
-
+  
 
     
  <!-- Footer -->
