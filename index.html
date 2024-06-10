@@ -63,35 +63,10 @@
 <header class="bg-gray-800 p-4 shadow-md">
     <div class="container mx-auto flex justify-between items-center">
         <div class="amelia-text neon-text">Amelia <span class="store-text">Store</span></div>
-        <div class="relative">
-            <div class="search-input hidden md:block">
-                <input type="text" id="searchInput" class="p-2 rounded-lg text-gray-100 transparent-input" placeholder="Cari...">
-                <button onclick="search()" class="absolute top-0 right-0 mt-2 mr-3">
-                    <i class="fas fa-search text-gray-100"></i>
-                </button>
-            </div>
-            <button onclick="toggleSearch()" class="icon-search mr-6 md:hidden">
-                <i class="fas fa-search text-gray-100"></i>
-            </button>
-            <div class="input-search hidden md:hidden">
-                <input type="text" id="searchInputMobile" class="p-2 rounded-lg text-gray-100 transparent-input" placeholder="Cari...">
-                <button onclick="search()" class="absolute top-0 right-0 mt-2 mr-3">
-                    <i class="fas fa-search text-gray-100"></i>
-                </button>
-            </div>
-        </div>
+      
     </div>
 </header>
-<script>
-    function toggleSearch() {
-        var searchInput = document.querySelector('.search-input');
-        if (searchInput.classList.contains('hidden')) {
-            searchInput.classList.remove('hidden');
-        } else {
-            searchInput.classList.add('hidden');
-        }
-    }
-</script>
+
 
 <!-- Navigasi di bagian bawah -->
 <div id="navMenu" class="fixed bottom-0 left-0 z-50 w-full h-16 bg-gray-800 border-t border-gray-600 nav-visible">
