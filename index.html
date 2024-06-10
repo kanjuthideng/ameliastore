@@ -163,64 +163,60 @@
                 <button data-title="CHIMERA Samsung" data-options='[{"durasi": "24 jam", "harga": "Rp 150.000"} ]' class="btn-buy bg-green-500 hover:bg-green-700 text-white text-xs font-bold py-2 px-4 rounded">Beli di WhatsApp</button>
             </div>
         </div>
-
-
-    <!-- Modal content -->
-    <div id="popupContent" class="mfp-hide white-popup-block p-4 flex flex-col items-center justify-center">
-        <h2 class="text-xl font-bold mb-4">Pilih Durasi dan Harga</h2>
+   <!-- Popup Content -->
+   <div id="popupContent" class="mfp-hide bg-gray-800 p-6 rounded-lg shadow-lg max-w-md mx-auto">
+    <h2 class="text-2xl font-bold text-white mb-4">Pilih Durasi</h2>
+    <p class="text-gray-400 mb-4">Silakan pilih durasi penggunaan yang diinginkan:</p>
+    <div id="popupOptions" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+        <!-- Options will be appended here -->
+       
       
-        <div id="popupOptions" class="mb-4 items-center justify-center">
-            <!-- Options will be dynamically added here -->
-        </div>
+</div>
+</div>
 
-        <button class="bg-red-500 text-white py-2 px-4 rounded" onclick="$.magnificPopup.close()">Batal</button>
-    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.btn-buy').each(function() {
+            $(this).magnificPopup({
+                items: {
+                    src: '#popupContent',
+                    type: 'inline'
+                },
+                closeBtnInside: true,
+                callbacks: {
+                    open: function() {
+                        var $btn = $(this.st.el);
+                        var options = JSON.parse($btn.attr('data-options'));
+                        window.selectedTitle = $btn.data('title');
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.btn-buy').each(function() {
-                $(this).magnificPopup({
-                    items: {
-                        src: '#popupContent',
-                        type: 'inline'
-                    },
-                    closeBtnInside: true,
-                    callbacks: {
-                        open: function() {
-                            var $btn = $(this.st.el);
-                            var options = JSON.parse($btn.attr('data-options'));
-                            window.selectedTitle = $btn.data('title');
+                        var $popupOptions = $('#popupOptions');
+                        $popupOptions.empty();
 
-                            var $popupOptions = $('#popupOptions');
-                            $popupOptions.empty();
-
-                            options.forEach(function(option) {
-                                var $button = $('<button>')
-                                    .text(option.durasi + ' - ' + option.harga)
-                                    .addClass('bg-gray-800 text-white py-2 px-4 items-center justify-center rounded mb-2')
-                                    .click(function() {
-                                        sendWhatsAppMessage(option.durasi, option.harga);
-                                    });
-                                $popupOptions.append($button);
-                                $popupOptions.append('<br>');
-                            });
-                        }
+                        options.forEach(function(option) {
+                            var $div = $('<div>')
+                                .addClass('bg-gray-700 text-white py-2 px-4 rounded flex items-center justify-center hover:bg-gray-600 cursor-pointer')
+                                .text(option.durasi + ' - ' + option.harga)
+                                .click(function() {
+                                    sendWhatsAppMessage(option.durasi, option.harga);
+                                });
+                            $popupOptions.append($div);
+                        });
                     }
-                });
+                }
             });
         });
+    });
 
-        function sendWhatsAppMessage(duration, price) {
-            var phoneNumber = '+6282269414039';
-            var message = `Halo, saya tertarik dengan ${window.selectedTitle} untuk durasi ${duration} dengan harga ${price}`;
-            var whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-            $.magnificPopup.close();
-        }
-    </script>
-
+    function sendWhatsAppMessage(duration, price) {
+        var phoneNumber = '+6282269414039';
+        var message = `Halo, saya tertarik dengan ${window.selectedTitle} untuk durasi ${duration} dengan harga ${price}`;
+        var whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+        $.magnificPopup.close();
+    }
+</script>
                 </div>
             </div>
         </div>
