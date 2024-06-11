@@ -166,8 +166,32 @@
     </div>
 </div>
 
+
+<div class="flex mb-4">
+    <button onclick="setGridCols(1)" class=" text-white hover:bg-gray-800 px-4 py-2 rounded mr-2">
+        <i class="fas fa-expand"></i>
+    </button>
+    <button onclick="setGridCols(2)" class="text-white hover:bg-gray-800 px-4 py-2 rounded">
+        <i class="fas fa-compress"></i>
+    </button>
+</div>
+
+<script>
+    function setGridCols(cols) {
+        const grid = document.getElementById('myGrid');
+        if (cols === 1) {
+            grid.classList.remove('grid-cols-2');
+            grid.classList.add('grid-cols-1');
+        } else {
+            grid.classList.remove('grid-cols-1');
+            grid.classList.add('grid-cols-2');
+        }
+    }
+</script>
             <div class="container mx-auto  mb-4">
-                <div class="grid grid-cols-2 xl:grid-cols-4 gap-2">
+                <div id="myGrid" class="grid grid-cols-1 xl:grid-cols-4 gap-2">
+
+                 
 
                     <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
                         <img src="assets/img/ucl.png" alt="Product" class="w-full ">
