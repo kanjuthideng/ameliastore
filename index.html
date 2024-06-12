@@ -63,9 +63,19 @@
 <header class="bg-gray-800 p-4 shadow-md">
     <div class="container mx-auto flex justify-between items-center">
         <div class="amelia-text neon-text">AMELIA <span class="store-text">STORE</span></div>
-      
+                    <!-- Search Bar -->
+                    <div class="">
+                        <input id="searchBar" type="text" class="w-full p-2 border bg-gray-700 border-gray-800 rounded" placeholder="Cari produk...">
+                    </div>
+                   
     </div>
 </header>
+ <!-- Hasil Pencarian -->
+ <div class="p-4">
+ <div id="searchResults" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 hidden">
+                      
+ </div>
+</div>
 
 
 <!-- Navigasi di bagian bawah -->
@@ -211,14 +221,18 @@
     }
 </script>
             <div class="container mx-auto  mb-4">
+
+     
+
+    
                 <div id="myGrid" class="grid grid-cols-1 xl:grid-cols-4 gap-2">
 
                  
 
-                    <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
+                    <div id="card1" class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
                         <img src="assets/img/ucl.png" alt="Product" class="w-full ">
                         <div class="p-4 flex-grow flex flex-col items-center">
-                            <div class="font-bold text-md mb-2 text-white">UNCLOKTOOL</div>
+                            <h1 class="font-bold text-md mb-2 text-white">UNCLOKTOOL</h1>
                             <div class="text-gray-400 font-bold text-sm mb-2">Rp 15.000</div>
                         </div>
                         <footer class="p-2">
@@ -228,10 +242,10 @@
                         </footer>
                       </div>
 
-                    <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
+                    <div id="card2" class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
                      <img src="assets/img/tfm.png" alt="Product" class="w-full ">
                      <div class="p-4 flex-grow flex flex-col items-center">
-                     <div class="font-bold text-md mb-2 text-white">TFM TOOL</div>
+                     <h1 class="font-bold text-md mb-2 text-white">TFM TOOL</h1>
                      
                     <div class="text-gray-400 font-bold text-sm mb-2">Rp 20.000</div>
                     </div>
@@ -243,10 +257,10 @@
                   </div>
 
 
-                  <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
+                  <div id="card3" class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
                     <img src="assets/img/dft.png" alt="Product" class="w-full ">
                     <div class="p-4 flex-grow flex flex-col items-center">
-                        <div class="font-bold text-md mb-2 text-white">DFT PRO</div>
+                        <h1 class="font-bold text-md mb-2 text-white">DFT PRO</h1>
                         <div class="text-gray-400 font-bold text-sm mb-2">Rp 50.000</div>
                     </div>
                     <footer class="p-2">
@@ -256,10 +270,10 @@
                     </footer>
                   </div>
 
-                  <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
+                  <div id="card4" class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
                     <img src="assets/img/CHIMERA.png" alt="Product" class="w-full ">
                     <div class="p-4 flex-grow flex flex-col items-center">
-                        <div class="font-bold text-md mb-2 text-white">CHIMERA</div>
+                        <h1 class="font-bold text-md mb-2 text-white">CHIMERA</h1>
                         <div class="text-gray-400 font-bold text-sm mb-2">Rp 150.000</div>
                     </div>
                     <footer class="p-2">
@@ -269,10 +283,10 @@
                     </footer>
                 </div>
 
-                <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
+                <div id="card5" class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
                     <img src="assets/img/cf.png" alt="Product" class="w-full ">
                     <div class="p-4 flex-grow flex flex-col items-center">
-                        <div class="font-bold text-md mb-2 text-white">CF TOOL</div>
+                        <h1 class="font-bold text-md mb-2 text-white">CF TOOL</h1>
                         <div class="text-gray-400 font-bold text-sm mb-2">Rp 20.000</div>
                     </div>
                     <footer class="p-2">
@@ -282,10 +296,10 @@
                     </footer>
                 </div>
 
-                <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
+                <div id="card6" class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
                     <img src="assets/img/rtc.png" alt="Product" class="w-full ">
                     <div class="p-4 flex-grow flex flex-col items-center">
-                        <div class="font-bold text-md mb-2 text-white">RTC TOOL</div>
+                        <h1 class="font-bold text-md mb-2 text-white">RTC TOOL</h1>
                         <div class="text-gray-400 font-bold text-sm mb-2">Rp 50.000</div>
                     </div>
                     <footer class="p-2">
@@ -295,10 +309,10 @@
                     </footer>
                 </div>
 
-                <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
+                <div id="card7" class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
                     <img src="assets/img/amt.png" alt="Product" class="w-full ">
                     <div class="p-4 flex-grow flex flex-col items-center">
-                        <div class="font-bold text-md mb-2 text-white">AMT</div>
+                        <h1 class="font-bold text-md mb-2 text-white">AMT</h1>
                         <div class="text-gray-400 font-bold text-sm mb-2">Rp 25.000</div>
                     </div>
                     <footer class="p-2">
@@ -308,10 +322,10 @@
                     </footer>
                 </div>
 
-                <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
+                <div  id="card8" class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
                     <img src="assets/img/griffin.png" alt="Product" class="w-full ">
                     <div class="p-4 flex-grow flex flex-col items-center">
-                        <div class="font-bold text-md mb-2 text-white">GRIFFIN TOOL</div>
+                        <h1 class="font-bold text-md mb-2 text-white">GRIFFIN TOOL</h1>
                         <div class="text-gray-400 font-bold text-sm mb-2">Rp 35.000</div>
                     </div>
                     <footer class="p-2">
@@ -321,10 +335,10 @@
                     </footer>
                 </div>
 
-                <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
+                <div id="card9" class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
                     <img src="assets/img/hydra.png" alt="Product" class="w-full ">
                     <div class="p-4 flex-grow flex flex-col items-center">
-                        <div class="font-bold text-md mb-2 text-white">HYDRA TOOL</div>
+                        <h1 class="font-bold text-md mb-2 text-white">HYDRA TOOL</h1>
                         <div class="text-gray-400 font-bold text-sm mb-2">Rp 70.000</div>
                     </div>
                     <footer class="p-2">
@@ -334,10 +348,10 @@
                     </footer>
                 </div>
 
-                <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
+                <div id="card10" class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
                     <img src="assets/img/cloud.png" alt="Product" class="w-full ">
                     <div class="p-4 flex-grow flex flex-col items-center">
-                        <div class="font-bold text-md mb-2 text-white"> MiCloud Server</div>
+                        <h1 class="font-bold text-md mb-2 text-white"> MiCloud Server</h1>
                         <div class="text-gray-400 font-bold text-sm ">Rp 100.000</div>
                     </div>
                     <div class="ml-4 mr-4 mb-5">
@@ -345,7 +359,6 @@
                         <p class="text-gray-300 text-sm">Wajib Clean | Indo OnlyOnly</p>
                         <p class="text-gray-300 text-sm">Proses : 1-3 Jam, Maks 1x24 Jam</p>
                     </div>
-                    
                     <footer class="p-2">
                         <button data-title="Unlock MiCloud Clean" data-options='[{"durasi": " 1-3 Jam, Maks 1x24 Jam", "harga": "Rp 100.000"}]'
                         class="btn-buy bg-blue-600 hover:bg-blue-700 font-medium text-sm px-5 py-2.5 text-white  rounded-lg shadow-lg w-full">Beli
@@ -353,10 +366,10 @@
                     </footer>
                 </div>
 
-                <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
+                <div id="card11" class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
                     <img src="assets/img/borneo.png" alt="Product" class="w-full ">
                     <div class="p-4 flex-grow flex flex-col items-center">
-                        <div class="font-bold text-md mb-2 text-white">SCHEMATICS</div>
+                        <h1 class="font-bold text-md mb-2 text-white">SCHEMATICS</h1>
                         <p class="text-gray-300 text-center text-sm mb-2">Borneo, Pragmafix, Estech, WXJ</p>
                         <div class="text-gray-400 font-bold text-sm mb-2">Rp 70.000</div>
                     </div>
@@ -367,10 +380,10 @@
                     </footer>
                 </div>
 
-                <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
+                <div id="card12" class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
                     <img src="assets/img/z3x.png" alt="Product" class="w-full ">
                     <div class="p-4 flex-grow flex flex-col items-center">
-                        <div class="font-bold text-md mb-2 text-white">Z3X TOOL PRO</div>
+                        <h1 class="font-bold text-md mb-2 text-white">Z3X TOOL PRO</h1>
                         <div class="text-gray-400 font-bold text-sm mb-2">Rp 50.000</div>
                     </div>
                     <footer class="p-2">
@@ -383,10 +396,10 @@
 
                 
 
-                <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
+                <div id="card13" class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
                     <img src="assets/img/CM2 DONGLE.png" alt="Product" class="w-full ">
                     <div class="p-4 flex-grow flex flex-col items-center">
-                        <div class="font-bold text-md mb-2 text-white">CM2 DONGLE</div>
+                        <h1 class="font-bold text-md mb-2 text-white">CM2 DONGLE</h1>
                         <div class="text-gray-400 font-bold text-sm mb-2">Rp 50.000</div>
                     </div>
                     <footer class="p-2">
@@ -396,10 +409,10 @@
                     </footer>
                 </div>
 
-                <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
+                <div id="card14" class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
                     <img src="assets/img/OCTOPLUS.png" alt="Product" class="w-full ">
                     <div class="p-4 flex-grow flex flex-col items-center">
-                        <div class="font-bold text-md mb-2 text-white"> OCTOPLUS</div>
+                        <h1 class="font-bold text-md mb-2 text-white"> OCTOPLUS</h1>
                         <p class="text-gray-300 text-center text-sm mb-2">FRP</p>
                         <div class="text-gray-400 font-bold text-sm ">Rp 30.000</div>
                     </div>
@@ -410,10 +423,10 @@
                     </footer>
                 </div>
 
-                <div class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
+                <div id="card15" class="card bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-xs mx-auto flex flex-col border border-gray-700 ">
                     <img src="assets/img/OCTOPLUS.png" alt="Product" class="w-full ">
                     <div class="p-4 flex-grow flex flex-col items-center">
-                        <div class="font-bold text-md mb-2 text-white"> OCTOPLUS</div>
+                        <h1 class="font-bold text-md mb-2 text-white"> OCTOPLUS</h1>
                         <p class="text-gray-300 text-center text-sm mb-2">Samsung/huawei/LG</p>
                         <div class="text-gray-400 font-bold text-sm ">Rp 50.000</div>
                     </div>
@@ -430,6 +443,58 @@
                 </div>
             </div>
             
+
+
+        
+    <script>
+        document.getElementById('searchBar').addEventListener('input', function () {
+            let filter = this.value.toUpperCase();
+            let cards = document.getElementsByClassName('card');
+            let searchResults = document.getElementById('searchResults');
+            searchResults.innerHTML = ''; // Kosongkan hasil pencarian sebelumnya
+    
+            if (filter === '') {
+                searchResults.classList.add('hidden');
+                return;
+            }
+    
+            let hasResults = false;
+    
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].getElementsByTagName('h1')[0];
+                if (title.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    hasResults = true;
+                    let clone = document.createElement('div');
+                    clone.className = 'bg-gray-700 hover:bg-blue-400 p-4 rounded-lg shadow-md cursor-pointer';
+                    clone.innerHTML = `
+                        <img src="${cards[i].getElementsByTagName('img')[0].src}" alt="${title.innerHTML}" class="mb-2 w-16 h-16 object-cover rounded">
+                        <h1 class="text-sm font-bold mb-2">${title.innerHTML}</h1>
+                    `;
+                    clone.addEventListener('click', function () {
+                        document.getElementById(cards[i].id).scrollIntoView({ behavior: 'smooth' });
+                    });
+                    searchResults.appendChild(clone);
+                }
+            }
+    
+            if (hasResults) {
+                searchResults.classList.remove('hidden');
+            } else {
+                searchResults.classList.add('hidden');
+            }
+        });
+    
+        document.querySelectorAll('.card button').forEach(button => {
+            button.addEventListener('click', function () {
+                let cardId = this.closest('.card').id;
+                alert(`Anda mengklik produk di ${cardId}`);
+            });
+        });
+    </script>
+
+
+
+
  <!-- Jumbotron -->
  <div class="relative h-screen flex items-center justify-center  mt-6 mb-6">
     <!-- Background Image -->
