@@ -495,7 +495,7 @@
         <input id="nameInput" type="text" class="w-full p-2 mt-1 rounded bg-gray-700 text-white">
     </div>
     <div class="mb-4">
-        <label class="text-gray-400" for="phoneInput">Nomor HP:</label>
+        <label class="text-gray-400" for="phoneInput">Nomor Wa:</label>
         <input id="phoneInput" type="text" class="w-full p-2 mt-1 rounded bg-gray-700 text-white">
     </div>
     <div class="mb-4">
@@ -561,15 +561,15 @@ function sendWhatsAppMessage(duration, price) {
     }
 
     var phoneNumber = '+6282269414039';
-    var message = `*Halo ka saya ingin membeli produk ini:*\n\n` +
+    var message = `*Halo AMELIA STORE saya ingin membeli produk ini:*\n\n` +
                   `*DATA PEMBELI*\n` +
                   `=============================\n` +
                   `*Nama* : ${name}\n` +
-                  `*Nomor WA* : ${phone}\n\n` +
+                  `*Nomor Wa* : ${phone}\n` +
                   `*Pembayaran* : Via ${paymentMethod}\n\n` +
                   `*DATA PRODUK*\n` +
                   `=============================\n` +
-                  `*${window.selectedTitle}*\n` +
+                  `*Produk* :${window.selectedTitle}\n` +
                   `*Durasi* : ${duration}\n` +
                   `*Harga* : ${price}\n` +
                   (note ? `*catatan lainnya* : ${note}\n` : '') +
