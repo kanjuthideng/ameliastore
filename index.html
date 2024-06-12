@@ -499,18 +499,22 @@
         <input id="phoneInput" type="text" class="w-full p-2 mt-1 rounded bg-gray-700 text-white">
     </div>
     <div class="mb-4">
-        <label class="text-gray-400">Pilih Transfer:</label>
+        <label class="text-gray-400">Metode Pemabayaran</label>
         <div class="flex flex-col">
-            <label class="text-gray-400"><input type="checkbox" class="mr-2" value="DANA - 08784877796 A/n Riyad"> DANA 08784877796</label>
-            <label class="text-gray-400"><input type="checkbox" class="mr-2" value="BRI - 2489 9237 2938 8293 A/n Riyad"> BRI 2489 9237 2938 8293</label>
+            <label class="text-gray-400"><input type="radio" name="paymentMethod" class="mr-2" value="DANA - 08784877796 A/n Riyad"> DANA</label>
+            <label class="text-gray-400"><input type="radio" name="paymentMethod" class="mr-2" value="BRI - 2489 9237 2938 8293 A/n Riyad"></label>
         </div>
+    </div>
+    <div class="mb-4">
+        <label class="text-gray-400" for="noteInput">Catatan Lainnya (Opsional):</label>
+        <textarea id="noteInput" class="w-full p-2 mt-1 rounded bg-gray-700 text-white" rows="3"></textarea>
     </div>
 </div>
 
 
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
 
 <script>
 $(document).ready(function() {
@@ -548,29 +552,27 @@ $(document).ready(function() {
 function sendWhatsAppMessage(duration, price) {
     var name = $('#nameInput').val();
     var phone = $('#phoneInput').val();
-    var transferOptions = [];
-    $('input[type="checkbox"]:checked').each(function() {
-        transferOptions.push($(this).val());
-    });
+    var paymentMethod = $('input[name="paymentMethod"]:checked').val();
+    var note = $('#noteInput').val();
 
-    if (!name || !phone || transferOptions.length === 0) {
+    if (!name || !phone || !paymentMethod) {
         alert('Silakan isi semua kolom dan pilih metode transfer.');
         return;
     }
 
     var phoneNumber = '+6282269414039';
-    var message = `Halo ka saya ingin membeli produk ini :\n\n` +
-                  `DATA PEMBELI\n` +
+    var message = `*Halo ka saya ingin membeli produk ini:*\n\n` +
+                  `*DATA PEMBELI*\n` +
                   `=============================\n` +
-                  `Nama : ${name}\n` +
-                  `Nomor HP : ${phone}\n\n` +
-                  `Pembayaran : Via ${transferOptions.join(', ')}\n\n` +
-                  `DATA PRODUK\n` +
+                  `*Nama* : ${name}\n` +
+                  `*Nomor WA* : ${phone}\n\n` +
+                  `*Pembayaran* : Via ${paymentMethod}\n\n` +
+                  `*DATA PRODUK*\n` +
                   `=============================\n` +
-                  `1. ${window.selectedTitle}\n` +
-                  `     Durasi : ${duration}\n` +
-                  `     Harga : ${price}\n` +
-                  `catatan lainnya : \n\n` +
+                  `*${window.selectedTitle}*\n` +
+                  `*Durasi* : ${duration}\n` +
+                  `*Harga* : ${price}\n` +
+                  (note ? `*catatan lainnya* : ${note}\n` : '') +
                   `=============================\n`;
 
     var whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
