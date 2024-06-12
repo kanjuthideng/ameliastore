@@ -584,7 +584,7 @@ function sendWhatsAppMessage(duration, price) {
                   `*Durasi* : ${duration}\n` +
                   `*Harga* : ${price}\n` +
                   (note ? `*catatan lainnya* : ${note}\n` : '') +
-                  `=============================\n`;
+                  `\n`;
 
     var whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
