@@ -485,20 +485,35 @@
 </div>
         </div>
 
-         <!-- Popup Content -->
-   <div id="popupContent" class="mfp-hide bg-gray-800 p-6 rounded-lg shadow-lg max-w-md mx-auto">
+    <!-- Popup Content -->
+<div id="popupContent" class="mfp-hide bg-gray-800 p-6 rounded-lg shadow-lg max-w-md mx-auto">
     <h2 class="text-2xl font-bold text-white mb-4">Pilih Durasi</h2>
     <p class="text-gray-400 mb-4">Silakan pilih durasi penggunaan yang diinginkan:</p>
-    <div id="popupOptions" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+    <div id="popupOptions" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4"></div>
+    <div class="mb-4">
+        <label class="text-gray-400" for="nameInput">Nama:</label>
+        <input id="nameInput" type="text" class="w-full p-2 mt-1 rounded bg-gray-700 text-white">
     </div>
-   </div>
-          
+    <div class="mb-4">
+        <label class="text-gray-400" for="phoneInput">Nomor HP:</label>
+        <input id="phoneInput" type="text" class="w-full p-2 mt-1 rounded bg-gray-700 text-white">
+    </div>
+    <div class="mb-4">
+        <label class="text-gray-400">Pilih Transfer:</label>
+        <div class="flex flex-col">
+            <label class="text-gray-400"><input type="checkbox" class="mr-2" value="DANA - 08784877796 A/n Riyad"> DANA 08784877796</label>
+            <label class="text-gray-400"><input type="checkbox" class="mr-2" value="BRI - 2489 9237 2938 8293 A/n Riyad"> BRI 2489 9237 2938 8293</label>
+        </div>
+    </div>
+</div>
+
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
 <script>
- $(document).ready(function() {
+$(document).ready(function() {
     $('.btn-buy').each(function() {
         $(this).magnificPopup({
             items: {
@@ -530,15 +545,41 @@
     });
 });
 
+function sendWhatsAppMessage(duration, price) {
+    var name = $('#nameInput').val();
+    var phone = $('#phoneInput').val();
+    var transferOptions = [];
+    $('input[type="checkbox"]:checked').each(function() {
+        transferOptions.push($(this).val());
+    });
 
-    function sendWhatsAppMessage(duration, price) {
-        var phoneNumber = '+6282269414039';
-        var message = `Halo, saya tertarik dengan ${window.selectedTitle} untuk durasi ${duration} dengan harga ${price}`;
-        var whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl, '_blank');
-        $.magnificPopup.close();
+    if (!name || !phone || transferOptions.length === 0) {
+        alert('Silakan isi semua kolom dan pilih metode transfer.');
+        return;
     }
+
+    var phoneNumber = '+6282269414039';
+    var message = `Halo ka saya ingin membeli produk ini :\n\n` +
+                  `DATA PEMBELI\n` +
+                  `=============================\n` +
+                  `Nama : ${name}\n` +
+                  `Nomor HP : ${phone}\n\n` +
+                  `Pembayaran : Via ${transferOptions.join(', ')}\n\n` +
+                  `DATA PRODUK\n` +
+                  `=============================\n` +
+                  `1. ${window.selectedTitle}\n` +
+                  `     Durasi : ${duration}\n` +
+                  `     Harga : ${price}\n` +
+                  `catatan lainnya : \n\n` +
+                  `=============================\n`;
+
+    var whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+    $.magnificPopup.close();
+}
 </script>
+
+
 
         <div id="aboutPage" class="page hidden">
             
