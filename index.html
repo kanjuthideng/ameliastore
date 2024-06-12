@@ -461,7 +461,7 @@
                 if (title.innerHTML.toUpperCase().indexOf(filter) > -1) {
                     hasResults = true;
                     let clone = document.createElement('div');
-                    clone.className = 'bg-gray-700 hover:bg-blue-400 p-4 rounded-lg shadow-md cursor-pointer';
+                    clone.className = 'bg-gray-700  p-4 rounded-lg shadow-md cursor-pointer';
                     clone.innerHTML = `
                         <img src="${cards[i].getElementsByTagName('img')[0].src}" alt="${title.innerHTML}" class="mb-2 w-16 h-16 object-cover rounded">
                         <h1 class="text-sm font-bold mb-2">${title.innerHTML}</h1>
